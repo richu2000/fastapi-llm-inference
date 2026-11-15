@@ -1,4 +1,4 @@
-
+import os
 import logging
 import time
 import uuid
@@ -32,7 +32,11 @@ logger = logging.getLogger("llm_api")
 
 app = FastAPI(title="Reliable LLM Inference API")
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = os.getenv(
+    "OLLAMA_URL",
+    "http://localhost:11434/api/generate"
+)
+#OLLAMA_URL = "http://localhost:11434/api/generate"
 
 
 # -----------------------------------
